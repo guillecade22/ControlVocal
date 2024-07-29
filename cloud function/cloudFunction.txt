@@ -1,0 +1,241 @@
+import functions_framework
+import json
+
+def de_text_a_instruccio(text):
+    instructions = []
+    
+    words = text.split()
+    words = [word for word in words if word]
+    i=0
+    while (i<len(words)):
+        if words[i].lower() == 'copiar':
+            instructions.append(['copiar'])
+            
+        elif words[i].lower() == 'pegar':
+            instructions.append(['pegar'])
+            
+        elif words[i].lower() == 'cortar':
+            instructions.append(['cortar'])
+            
+        elif words[i].lower() == 'deshacer':
+            instructions.append(['deshacer'])
+            
+        elif words[i].lower() == 'rehacer':
+            instructions.append(['rehacer'])
+            
+        elif words[i].lower() == 'afirmativo':
+            instructions.append(['afirmativo'])
+            
+        elif words[i].lower() == 'negativo':
+            instructions.append(['negativo'])
+            
+        elif words[i].lower() == 'apagar':
+            instructions.append(['apagar'])
+
+        elif words[i].lower() == 'reiniciar':
+            instructions.append(['reiniciar'])
+
+        elif words[i].lower() == 'cambiar':
+            text=''
+            j=i
+            if(i+1<len(words)):
+                for j in range(i+1,len(words)):
+                    if words[j].lower() == 'acabar':
+                        break
+                    text+=' '+words[j]
+                instructions.append(['cambiar',text])
+                i=j
+
+        elif words[i].lower() == 'cerrar':
+            text=''
+            j=i
+            if(i+1<len(words)):
+                for j in range(i+1,len(words)):
+                    if words[j].lower() == 'acabar':
+                        break
+                    text+=' '+words[j]
+                instructions.append(['cerrar',text])
+                i=j
+                
+        elif words[i].lower() == 'abrir':
+            text=''
+            j=i
+            if(i+1<len(words)):
+                for j in range(i+1,len(words)):
+                    if words[j].lower() == 'acabar':
+                        break
+                    text+=' '+words[j]
+                instructions.append(['abrir',text])
+                i=j
+
+        elif words[i].lower() == 'windows':
+            if i < len(words)-1:
+                if  words[i+1].lower() == 'abrir':
+                    text=''
+                    for j in range(i+2,len(words)):
+                        if words[j].lower() == 'acabar':
+                            break
+                        text+=' '+words[j]
+                    instructions.append(['windows abrir',text])
+                    i=j
+
+        elif words[i].lower() == 'escribir':
+            text=''
+            j=i+1
+            write_ascii=False
+            while(j<len(words)):
+                if words[j].lower() == 'acabar':
+                    if j < len(words)-1:
+                        if words[j+1].lower() == 'escribir':
+                            break
+                if words[j].lower() == 'símbolo':
+                    if j < len(words)-1:
+                        if words[j+1].lower() == 'símbolo': 
+                            if write_ascii:
+                                write_ascii=False
+                            else:
+                                write_ascii=True
+                            j+=2
+                if write_ascii:
+                    words[j]=int(words[j])
+                    words[j]=chr(words[j])
+                    text+=words[j]
+                else:
+                    text+=' '+words[j]
+                j+=1
+            instructions.append(['escribir',text])
+            i=j+1
+
+        elif words[i].lower() == 'mover':
+            if i <= len(words)-3:
+                if words[i+1].lower() in ('ratón','cursor'):
+                    if words[i+2].lower() in ('izquierda','derecha','arriba','abajo'):
+                        if i <= len(words)-4:
+                            if words[i+3].isdigit():
+                                instructions.append(['mover',words[i+1],words[i+2],words[i+3]])
+                                i=i+3
+                            else:
+                                instructions.append(['mover',words[i+1],words[i+2]])
+                                i=i+2
+                        else:
+                            instructions.append(['mover',words[i+1],words[i+2]]) 
+                            i=i+2
+                    else:
+                        print("Mouse or cursor must be follwed by direction")
+                else:
+                    print("Move must be follwed by mouse or cursor")
+                    
+            else:
+                print("Move must be follwed by all")
+          
+        elif words[i].lower() == 'doble':
+            if i <= len(words)-1:
+                if words[i+1].lower() in ('clic'):
+                    instructions.append(['doble',words[i+1]])
+                    i=i+1
+                else:
+                    print("Double must be follwed by left, middle or right")
+                    
+            else:
+                print("Double must be follwed by all")
+                
+        elif words[i].lower() in ('clic'):
+            if i <= len(words)-2:
+                if words[i+1].lower() in ('izquierdo','derecho','central'):
+                    instructions.append([words[i],words[i+1]])
+                else:
+                    print("Left, middle or right must be follwed by click")                    
+            else:
+                print("Left, middle or right must be follwed by click")
+        elif words[i].lower() == 'google':
+            text=''
+            j=i+1
+            while(j<len(words)):
+                if words[j].lower() == 'acabar':
+                    if j < len(words)-1:
+                        if words[j+1].lower() == 'google':
+                            break
+                text+=' '+words[j]
+                j+=1
+            instructions.append(['google',text])
+            i=j+1
+        elif words[i].lower() == 'spotify':
+            text=''
+            j=i+1
+            while(j<len(words)):
+                if words[j].lower() == 'acabar':
+                    if j < len(words)-1:
+                        if words[j+1].lower() == 'spotify':
+                            break
+                text+=' '+words[j]
+                j+=1
+            instructions.append(['spotify',text])
+            i=j+1
+        elif words[i].lower() == 'archivos':
+            aux_list=[]
+            aux_list.append('archivos')
+            j=i+1
+            while(j<len(words)):
+                if words[j].lower() == 'acabar':
+                    if j < len(words)-1:
+                        if words[j+1].lower() == 'archivos':
+                            break
+                else:
+                    aux_list.append(words[j])
+                    j+=1
+
+            instructions.append(aux_list)
+            i=j+1
+        i+=1
+    return instructions
+
+# Triggered by a change in a storage bucket
+@functions_framework.cloud_event
+def speechToText(cloud_event):
+    from google.cloud import speech
+    from google.cloud import storage
+    data = cloud_event.data
+
+    storage_client = storage.Client.from_service_account_json('key.json')
+
+    speech_client = speech.SpeechClient.from_service_account_file('key.json')
+
+    bucket_name = 'input-audio-uab'
+    file_name = data["name"]
+
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+    mp3_data = blob.download_as_string()
+    blob.delete()
+
+    audio_file = speech.RecognitionAudio(content=mp3_data)
+
+    config = speech.RecognitionConfig(
+        sample_rate_hertz=44100,
+        enable_automatic_punctuation=False,
+        language_code='es-ES'
+    )
+    
+    response = speech_client.recognize(config=config, audio=audio_file)
+
+    # Save transcript to a file in Cloud Storage
+    transcript = ''
+    for result in response.results:
+        transcript += result.alternatives[0].transcript
+
+    instruccions=de_text_a_instruccio(transcript)
+    print(transcript)
+    print(instruccions)
+    
+    # Save instruccions to a file in Cloud Storage
+    output_bucket_name = 'audio-script-sm'  # Output bucket
+    output_bucket = storage_client.bucket(output_bucket_name)
+
+    data = {
+    'transcript': transcript,
+    'instruccions': instruccions
+    }
+    instruccions_json = json.dumps(data)
+
+    output_blob = output_bucket.blob("output_instruccions.json")
+    output_blob.upload_from_string(instruccions_json, content_type="application/json")
