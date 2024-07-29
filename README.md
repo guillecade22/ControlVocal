@@ -69,7 +69,7 @@ To set up Control Vocal, follow these steps:
 ![gc_arc](assets/google_cloud_arc.png)
 
 ### GUI
-The GUI of the application is created using the Eel library, which combines HTML, CSS, and JavaScript for the front end with Python for the backend. Eel runs a local web server that serves the web-based interface, allowing for a rich, interactive user experience. JavaScript in the web interface communicates with Python functions, enabling dynamic interactions and data handling. This setup leverages the flexibility of web technologies while utilizing Python’s backend capabilities.
+The Graphical User Interface of the application is created using the Eel library, which combines HTML, CSS, and JavaScript for the front end with Python for the backend. Eel runs a local web server that serves the web-based interface, allowing for a rich, interactive user experience. JavaScript in the web interface communicates with Python functions, enabling dynamic interactions and data handling. This setup leverages the flexibility of web technologies while utilizing Python’s backend capabilities.
 
 ![screenshot](assets/gui_screenshot.png)
 
