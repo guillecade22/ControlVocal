@@ -49,7 +49,7 @@ To set up Control Vocal, follow these steps:
 4. Deploy the Google Cloud Function with the code from the cloud_functions folder.
 5. Generate a service account key.
 6. Execute the window.py file.
-7. (Optional) If a Graphical User Interface is not required execute the main.py
+7. (Optional) If a Graphical User Interface is not required, execute the main.py
 
 ## How does it work?
 
