@@ -1,0 +1,89 @@
+@font-face {
+        font-family: 'custom_font';
+        src: url('assets/Gontserrat.ttf') format('truetype');
+        /* You can include additional font formats for better browser support */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #181818;
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+div#console, div#heard {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 100px;
+    border-radius: 4px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-family: custom_font;
+    text-align: center;
+    color: #e8e8e8;
+}
+
+div#confirmacio {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    border-radius: 4px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-family: custom_font;
+    text-align: center;
+    color: #e8e8e8;
+}
+
+div#llegenda, div#acabar {
+    font-family: custom_font;
+    /*text-align: center;*/
+    color: #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+#sub_leg1, #sub_leg2 {
+    width: 48%; /* Adjust width as needed */
+}
+
+#logo {
+    width: 400px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add margin-right */
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px; /* Add margin-top */
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

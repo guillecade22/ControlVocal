@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Vocal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico">
+    <script src="/eel.js"></script>
+</head>
+<body>
+    <img id="logo" src="assets/Logo_light.png" alt="Logo">
+    <!--<button onclick="greet()">Iniciar</button> -->
+    <div id="console"></div>
+    <div id="confirmacio"></div>
+    <div id="heard"></div>
+
+    <script>
+        window.onload = function() {
+            greet();
+        };
+        function greet() {
+            eel.u()();
+        }
+
+        eel.expose(updateConsole);
+        eel.expose(updateHeard);
+        eel.expose(updateConfirm);
+        function updateConsole(message) {
+            var console = document.getElementById("console");
+            // Clear the content of the console before appending the new message
+            console.innerHTML = message + "<br>";
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function updateConfirm(message) {
+            var console = document.getElementById("confirmacio");
+            // Clear the content of the console before appending the new message
+            console.innerHTML = message + "<br>";
+            console.scrollTop = console.scrollHeight;
+        }
+
+        function updateHeard(message) {
+            var console = document.getElementById("heard");
+            // Clear the content of the console before appending the new message
+            console.innerHTML = message + "<br>";
+            console.scrollTop = console.scrollHeight;
+        }
+    </script>
+    <div id="llegenda">
+        <div id="sub_leg1">
+            <h1>Edición:</h1>
+            <ul>
+                <li>Cortar</li>
+                <li>Copiar</li>
+                <li>Pegar</li>
+                <li>Deshacer</li>
+                <li>Rehacer</li>
+                <li>Escribir
+                    <ul>
+                        <li>Texto</li>
+                        <li>Simbolo [Simbolo especial]</li>
+                    </ul>
+                </li>
+            </ul>
+            <h1>Operaciones de ventana:</h1>
+            <ul>
+                <li>Cambiar [Ventana]</li>
+                <li>Cerrar [Ventana]</li>
+                <li>Abrir [Programa]</li>
+                <li>Windows Abrir [Programa]</li>
+            </ul>
+        </div>
+
+        <div id="sub_leg2">
+            <h1>Búsqueda de contenido:</h1>
+            <ul>
+                <li>Google [Texto de búsqueda]</li>
+                <li>Spotify [Canción]</li>
+                <li>Archivos (Escritorio)</li>
+            </ul>
+            <h1>Sistema:</h1>
+            <ul>
+                <li>Apagar [Afirmativo / Negativo]</li>
+                <li>Reiniciar [Afirmativo / Negativo]</li></li>
+            </ul>
+            <h1>Ratón:</h1>
+            <ul>
+                <li>Arriba / Abajo / Izquierda / Derecha [Pixeles]</li>
+                <li>Clic izquierdo (Principal)</li>
+                <li>Clic derecho</li>
+                <li>Clic central</li>
+                <li>Doble click</li>
+            </ul>
+        </div>
+    </div>
+    <div id="acabar">
+        <h1>Encadenar ordenes:</h1>
+            <ul>
+                <li>[Orden 1] Acabar [Orden 2]</li>
+            </ul>
+    </div>
+</body>
+</html>
