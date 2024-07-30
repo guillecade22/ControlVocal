@@ -98,7 +98,7 @@ The Graphical User Interface of the application is created using the Eel library
 - **[Command 1] Acabar [Command 2]**: For all instructions that require additional text (except for typing), say "Acabar" at the end to finalize the command. For example, to perform a Google search for the number of inhabitants in Spain, say: "Google Habitantes Espanya Acabar."
 
 ## Video
-[]()
+[Example Video](assets/example_video.mp4)
 
 ## Authors
 
