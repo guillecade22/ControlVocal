@@ -95,10 +95,11 @@ The Graphical User Interface of the application is created using the Eel library
 - **Clic derecho**: Performs a right-click with the mouse.
 - **Clic central**: Performs a middle-click (usually the scroll wheel click) with the mouse.
 - **Doble click**: Performs a double-click with the mouse.
-- **[Command 1] Acabar [Command 2]**: For all instructions that require additional text (except for typing), say "Acabar" at the end to finalize the command. For example, to perform a Google search for the number of inhabitants in Spain, say: "Google Habitantes Espanya Acabar."
+- **[Command 1] Acabar [Command 2]**: For all instructions that require additional text (except for typing), if you want to chain multiple instructions, say "Acabar" at the end to finalize the command. For example, to perform a Google search for the number of inhabitants in Spain, say: "Google Habitantes Espanya Acabar."
 
 ## Video
-[Example Video](assets/example_video.mp4)
+
+[![Watch the video](https://img.youtube.com/vi/-3PbKUwc6gg/maxresdefault.jpg)](https://youtu.be/-3PbKUwc6gg)
 
 ## Authors
 
