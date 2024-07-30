@@ -99,7 +99,7 @@ The Graphical User Interface of the application is created using the Eel library
 
 ## Video
 
-[![Watch the video](https://img.youtube.com/vi/-3PbKUwc6gg/maxresdefault.jpg)](https://youtu.be/-3PbKUwc6gg)
+[Watch the video on YouTube](https://youtu.be/-3PbKUwc6gg)
 
 ## Authors
 
